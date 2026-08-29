@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parseholes Legendary Gamers - Guild Roster</title>
+  <style>
+    :root {
+      --bg-color: #090e0b;
+      --card-bg: #111a14;
+      --toxic-green: #39ff14;
+      --toxic-green-glow: rgba(57, 255, 20, 0.4);
+      --text-main: #e0e0e0;
+      --border-color: #1f3325;
+      --accent-dim: #1a4d25;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      background-image: radial-gradient(circle at 50% 0%, #0f2416 0%, var(--bg-color) 70%);
+      color: var(--text-main);
+      margin: 0;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--toxic-green);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 0;
+      text-shadow: 0 0 15px var(--toxic-green-glow);
+    }
+
+    .subtitle {
+      color: #88a890;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .role-section {
+      max-width: 1400px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .role-title {
+      font-size: 2rem;
+      color: var(--toxic-green);
+      border-bottom: 2px solid var(--accent-dim);
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Enlarged Grid Layout */
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Expanded Card Panel */
+    .raider-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .raider-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--toxic-green);
+      box-shadow: 0 0 25px rgba(57, 255, 20, 0.25);
+    }
+
+    /* Centered Header Layout for Larger Avatars */
+    .raider-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Large Avatar Showcase */
+    .raider-avatar {
+      width: 100%;
+      max-width: 260px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid var(--toxic-green);
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+    }
+
+    .raider-info {
+      width: 100%;
+    }
+
+    .raider-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--toxic-green);
+      margin: 0 0 0.25rem 0;
+      text-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+    }
+
+    .raider-title {
+      font-size: 1rem;
+      color: #a0a0a0;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .raider-country {
+      font-size: 0.9rem;
+      color: #707070;
+    }
+
+    .raider-summary {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #c0c0c0;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .raider-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-io {
+      background: #1e2d24;
+      color: var(--toxic-green);
+      border: 1px solid var(--toxic-green);
+    }
+
+    .btn-io:hover {
+      background: var(--toxic-green);
+      color: #000;
+    }
+
+    .btn-logs {
+      background: #2a1f1d;
+      color: #ff5555;
+      border: 1px solid #ff5555;
+    }
+
+    .btn-logs:hover {
+      background: #ff5555;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>☠️ Parseholes Legendary Gamers ☠️</h1>
+    <div class="subtitle">Mythic Raid Roster</div>
+  </header>
+
+  <main id="roster-container">
+    <!-- Role Sections Render Here Automatically -->
+  </main>
+
+  <script>
+    const rosterData = {
+      "Leadership": [
+        { name: "Ash", title: "DPS, Raid Lead, Suicide Bomber", country: "Bulgaria", avatar: "images/ash.jpg", summary: "Never calm under pressure always looking for a way to pad. Shamelessly stealing strats, backflipping into raid wipes, a good looking thumb.", io: "https://raider.io/characters/eu/frostmane/Ashbeam", logs: "https://www.warcraftlogs.com/character/eu/frostmane/Ashbeam" },
+        { name: "Bob", title: "Healer, Titty Puncher, Breeder", country: "Sweden", avatar: "images/bob.jpg", summary: "Healing god who has decided to visit the mortal plains and bless them with his healing. Just don't add another healer to steal his parses. Taught ancient healing technique by a Dishwasher.", io: "https://raider.io/characters/eu/draenor/Dracbob", logs: "https://www.warcraftlogs.com/character/eu/draenor/Dracbob" },
+        { name: "Zioffy", title: "DPS, Never Lucky, Never Proccing", country: "Greece", avatar: "images/zioffy.jpg", summary: "Jack of all trades master of all. One would say Has the most positive opinions for everyone. Will always give a nice and kind encouragment to perform better. Will always cast before doing mechanics.", io: "https://raider.io/characters/eu/stormscale/Zioffyrod", logs: "https://www.warcraftlogs.com/character/eu/stormscale/Zioffyrod" },
+        { name: "Jon", title: "DPS, Certified Uncle Status", country: "UK", avatar: "images/jon.jpg", summary: "When someones name is integrated into a class ability you already know he's a god of the class. A true believer in the Tomato God. A healer with a side hustle to DPS occasionally. Just don't ever ask him to heal.", io: "https://raider.io/characters/eu/kazzak/Jonscendanc%C3%A9", logs: "https://www.warcraftlogs.com/character/eu/kazzak/Jonscendanc%C3%A9" },
+        { name: "Tom", title: "DPS, Rogue Lover, Healing Hater", country: "UK", avatar: "images/tom.jpg", summary: "Mechanics tester, just don't check if his defensive is up and do not ask why he doesn't have it. He will shadowstep into his demise.", io: "https://raider.io/characters/eu/draenor/Leiylarogue", logs: "https://www.warcraftlogs.com/character/eu/draenor/Leiylarogue" }
+      ],
+      "Tanks": [
+        { name: "Sallty", title: "M+ Connoiseur", country: "Czech", avatar: "images/sallty.jpg", summary: "Will happily tank your key as long as it's a +38. Will teach you to tank, will lose hope if you don't improve. Secretly loves playing bear tank.", io: "https://raider.io/characters/eu/tarren-mill/Salltyblood", logs: "https://www.warcraftlogs.com/character/eu/tarren-mill/Salltyblood" },
+        { name: "Rozzetti", title: "Loves Certain Painter", country: "Belgium", avatar: "images/rozzetti.jpg", summary: "Will gladly share his opinions on history, always ready to share fun historic facts about the 20th century. Listens to Sallty like he's dangling a pic of Asa infront of him.", io: "https://raider.io/characters/eu/draenor/Rozzetti", logs: "https://www.warcraftlogs.com/character/eu/draenor/Rozzetti" }
+      ],
+      "Melee DPS": [
+        { name: "Dyren", title: "The Giga-Chad", country: "Belgium", avatar: "images/dyren.jpg", summary: "Akin to a mountain standing lonely and stoic in the most trying of winds Dyrens' will is unwavering when it comes to his Warrior. Will be a power bottom for Bob, but only Bob. You will experience his wrath if you take away his Monk buff.", io: "https://raider.io/characters/eu/draenor/Dyren", logs: "https://www.warcraftlogs.com/character/eu/draenor/Dyren" },
+        { name: "Wilem", title: "Manual Breather", country: "Sweden", avatar: "images/wilem.jpg", summary: "Forgets basic human functions such as breathing during progression. Just don't ask him to explain cleaving techniques and DK balance. Loves thinking about big throbbing DPS.", io: "https://raider.io/characters/eu/twisting-nether/Abcdef", logs: "https://www.warcraftlogs.com/character/eu/twisting-nether/Abcdef" },
+        { name: "Juggernaut", title: "Mr. Intermission", country: "Denmark", avatar: "images/jugger.jpg", summary: "One would rarely associate a good player with a paladin yet here we stand, juggernaut is his name being pink is his game. Make sure you always reach intermission tho otherwise the positive attitude becomes akin to a priest exorcising a demon.", io: "https://raider.io/characters/eu/silvermoon/J%C3%BBggerna%C3%BAt", logs: "https://www.warcraftlogs.com/character/eu/silvermoon/J%C3%BBggerna%C3%BAt" }
+      ],
+      "Ranged DPS": [
+        { name: "Illioni", title: "Backflip dash backflip die", country: "Sweden", avatar: "images/illioni.jpg", summary: "Initially recruited for tank, he found his calling in a flurry of dashes and got lost in the void abyss of collapsing stars and backflips. Ever reliable and ever ready to have a funny moment and die.", io: "https://raider.io/characters/eu/twisting-nether/Illioni", logs: "https://www.warcraftlogs.com/character/eu/twisting-nether/Illioni" },
+        { name: "Meow", title: "Never repeating mistakes", country: "Denmark", avatar: "images/meow.jpg", summary: "The art of not repeating a mistake is where you'd slam Meows' face in a dictionary. Just don't give her a crystal and ask her to do 100 parse, one of the two will get sacrificed and we already know she's a mechanics first player.", io: "https://raider.io/characters/eu/twisting-nether/Meowlameowla", logs: "https://www.warcraftlogs.com/character/eu/twisting-nether/Meowlameowla" },
+        { name: "Embear", title: "Man with a voice changer", country: "UK", avatar: "images/embear.jpg", summary: "Do not get fooled by the voice changer behind that feminine voice are hiding massive hanging and throbbing hairy balls full of testosterone. Plays a boomie so it's a bit of a testosterone loss, but nonetheless damage and vibes are provided.", io: "https://raider.io/characters/eu/draenor/Emb%C3%A9ar4", logs: "https://www.warcraftlogs.com/character/eu/draenor/Emb%C3%A9ar" },
+        { name: "Levend", title: "Sir Burps-a-lot", country: "Denmark", avatar: "images/levend.jpg", summary: "Much like a military border patrol he ever so casually gatekeeps the top boss damage rankings in the guild. Will always gladly burp at least 12 times during prog and would happily carry any and all balls to wherever they need be. Whatever you do kind soul, do not ask him for his big toe.", io: "https://raider.io/characters/eu/outland/Levended%C3%B8d", logs: "https://www.warcraftlogs.com/character/eu/outland/Levended%C3%B8d" },
+        { name: "Shebby", title: "Real-Estate Hunter", country: "UK", avatar: "images/shebby.jpg", summary: "It is easy to confuse a boulder and Shebby with how solid and reliable he is, unflinching and unwavering, ready to go above and beyond. If you also wish to spend a night in one of the most luxurious BnBs in UK, just send him a DM.", io: "https://raider.io/characters/eu/draenor/Shebby", logs: "https://www.warcraftlogs.com/character/eu/draenor/Shebby" },
+        { name: "Rilcaz", title: "Live and die by WW tuning", country: "UK", avatar: "images/rilcaz.jpg", summary: "Loves monk hates blizzards tuning for monk, his early patch tuning crisis led him to the firm grasp of Mage. Worry not for he will find the Whirling Dragon Punch equivalent.", io: "https://raider.io/characters/eu/draenor/Methuseloh", logs: "https://www.warcraftlogs.com/character/eu/draenor/Methuseloh" },
+        { name: "Qlis", title: "The Quiet, The Deadly, The Blaster", country: "Finland", avatar: "images/qlis.jpg", summary: "Words are not necessary to describe what mortal eyes cannot comprehend. If one seeks infinite mage damage Qlis is the man that provides it. If one seeks mechanical execution, Qlis Provides. God gave, Qlis took.", io: "https://raider.io/characters/eu/draenor/Qlis", logs: "https://www.warcraftlogs.com/character/eu/draenor/Qlis" },
+        { name: "Shadouw", title: "WHERE WOMEN", country: "Romania", avatar: "images/shadouw.jpg", summary: "A specialist in dealing damage, loves a good spread cleave and multidot opportunity, reliable and the guy everyone laughs with... or at. Just don't be put on his list, or do not reveal you posses a vulva.", io: "https://raider.io/characters/eu/ragnaros/Shadouw", logs: "https://www.warcraftlogs.com/character/eu/ragnaros/Shadouw" },
+        { name: "Arki", title: "The Warlock Stud", country: "Wales", avatar: "images/arki.jpg", summary: "Hailing from the lands of Cumfall, he is famous for popping bottles after CE the same way he pops L'ura crystals and Damage Meters.", io: "https://raider.io/characters/eu/twisting-nether/Arkilock", logs: "https://www.warcraftlogs.com/character/eu/twisting-nether/Arkilock" },
+        { name: "Heiren", title: "Semi-Functional Retard", country: "Belgium", avatar: "images/heiren.jpg", summary: "In the shadows of gray parses he rose like a phoenix to blue parse. Part of the trio of warlocks who forgot their utility.", io: "https://raider.io/characters/eu/draenor/Depriven", logs: "https://www.warcraftlogs.com/character/eu/draenor/Depriven" },
+        { name: "Sav", title: "Seeker of fine things", country: "Bulgaria", avatar: "images/sav.jpg", summary: "In pursuit of beauty and cosmetic glory, he found himself in the depths of Mythic obtaining the prettiest of items and the shiniest of collectibles. He may no longer disengage into a mechanic but he for sure will demonic gate into one.", io: "https://raider.io/characters/eu/turalyon/Thalianna", logs: "https://www.warcraftlogs.com/character/eu/turalyon/Thalianna" }
+      ],
+      "Healers": [
+        { name: "Shall", title: "The line between life and death", country: "Denmark", avatar: "images/shall.jpg", summary: "Like an old ancient oak protecting the ground from he stands above the raid and healing letting the dps nourish. Just don't tell him there's glaives to eat he will be the first one there.", io: "https://raider.io/characters/eu/draenor/Shalldudu", logs: "https://www.warcraftlogs.com/character/eu/draenor/Shalldudu" },
+        { name: "Sam", title: "Mr. No Main Class", country: "Norway", avatar: "images/sam.jpg", summary: "Not even the mighty Lord Jesus Christ could tell you what his main class is or from which country he is, you can however always trust him to be at least average and have at least 3 functioning brain cells at a time. Just don't ask him what a vulva is.", io: "https://raider.io/characters/eu/draenor/%C3%85lcapone", logs: "https://www.warcraftlogs.com/character/eu/draenor/%C3%85lcapone" },
+        { name: "Methy", title: "The Cougar Tamer", country: "Sweden", avatar: "images/methy.jpg", summary: "Never missed a raid, always on time a borderline alcoholic and worst offense of them all stealing Bobs parses. Just don't ask him when he has vacations and for how long.", io: "https://raider.io/characters/eu/twisting-nether/Holymeth", logs: "https://www.warcraftlogs.com/character/eu/twisting-nether/Holymeth" }
+      ]
+    };
+
+    const container = document.getElementById('roster-container');
+
+    for (const [role, raiders] of Object.entries(rosterData)) {
+      const section = document.createElement('section');
+      section.className = 'role-section';
+
+      const title = document.createElement('h2');
+      title.className = 'role-title';
+      title.textContent = role;
+      section.appendChild(title);
+
+      const grid = document.createElement('div');
+      grid.className = 'roster-grid';
+
+      raiders.forEach(raider => {
+        const card = document.createElement('div');
+        card.className = 'raider-card';
+
+        card.innerHTML = `
+          <div class="raider-header">
+            <img class="raider-avatar" src="${raider.avatar}" alt="${raider.name}" onerror="this.src='https://via.placeholder.com/260?text=${raider.name}'">
+            <div class="raider-info">
+              <h3 class="raider-name">${raider.name}</h3>
+              <div class="raider-title">${raider.title}</div>
+              <div class="raider-country">📍 ${raider.country}</div>
+            </div>
+          </div>
+          <div class="raider-summary">${raider.summary}</div>
+          <div class="raider-links">
+            <a href="${raider.io}" class="btn btn-io" target="_blank">Raider.IO</a>
+            <a href="${raider.logs}" class="btn btn-logs" target="_blank">WarcraftLogs</a>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      section.appendChild(grid);
+      container.appendChild(section);
+    }
+  </script>
+</body>
+</html>
